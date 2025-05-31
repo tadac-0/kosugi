@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SleepRent - 高品質マットレスレンタルサービス</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #2c5aa0;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #2c5aa0;
+        }
+
+        .cta-button {
+            background: #2c5aa0;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .cta-button:hover {
+            background: #1e3f73;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn-primary {
+            background: #ff6b6b;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 1rem 2rem;
+            border: 2px solid white;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #667eea;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: #2c5aa0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        /* How it works */
+        .how-it-works {
+            padding: 80px 0;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: #ff6b6b;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 1rem;
+        }
+
+        .step h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        /* Pricing */
+        .pricing {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pricing-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            border: 3px solid #ff6b6b;
+            transform: scale(1.05);
+        }
+
+        .pricing-card.featured::before {
+            content: "人気";
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ff6b6b;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .plan-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .plan-price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #2c5aa0;
+            margin-bottom: 0.5rem;
+        }
+
+        .plan-period {
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .plan-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .plan-features li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .plan-features li:last-child {
+            border-bottom: none;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+            color: #666;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .pricing-card.featured {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">SleepRent</div>
+            <ul class="nav-links">
+                <li><a href="#features">特徴</a></li>
+                <li><a href="#how-it-works">利用方法</a></li>
+                <li><a href="#pricing">料金</a></li>
+                <li><a href="#testimonials">お客様の声</a></li>
+            </ul>
+            <a href="#cta" class="cta-button">今すぐ申し込み</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>最高の睡眠を、手軽にレンタル</h1>
+            <p>高品質なマットレスを月額制でレンタル。購入前のお試しや短期利用に最適です。</p>
+            <div class="hero-cta">
+                <a href="#pricing" class="btn-primary">料金を見る</a>
+                <a href="#how-it-works" class="btn-secondary">利用方法</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">SleepRentが選ばれる理由</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🛏️</div>
+                    <h3>高品質マットレス</h3>
+                    <p>有名ブランドの高級マットレスを厳選。快適な睡眠をお約束します。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚚</div>
+                    <h3>配送・設置無料</h3>
+                    <p>お申し込みから最短翌日配送。設置・回収まで全て無料で対応いたします。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🧼</div>
+                    <h3>衛生管理徹底</h3>
+                    <p>専門業者による徹底的なクリーニングと除菌で、常に清潔な状態でお届け。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3>コストパフォーマンス</h3>
+                    <p>高額な購入費用なしで、月額制で気軽に高品質マットレスをご利用いただけます。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3>いつでも交換可能</h3>
+                    <p>体に合わない場合は、いつでも他のマットレスに交換可能です。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📞</div>
+                    <h3>24時間サポート</h3>
+                    <p>お困りの際は24時間365日、専門スタッフがサポートいたします。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <h2 class="section-title">ご利用の流れ</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>プラン選択</h3>
+                    <p>お好みのマットレスとレンタル期間を選択してお申し込み</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>配送・設置</h3>
+                    <p>最短翌日にご自宅まで配送し、専門スタッフが設置いたします</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>快適な睡眠</h3>
+                    <p>高品質なマットレスで、毎日の睡眠をお楽しみください</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>返却・交換</h3>
+                    <p>期間終了時の返却や、他商品への交換も簡単に行えます</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2 class="section-title">料金プラン</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="plan-name">ベーシック</div>
+                    <div class="plan-price">¥3,980</div>
+                    <div class="plan-period">月額（税込）</div>
+                    <ul class="plan-features">
+                        <li>スタンダードマットレス</li>
+                        <li>配送・設置無料</li>
+                        <li>基本クリーニング</li>
+                        <li>メールサポート</li>
+                    </ul>
+                    <a href="#cta" class="btn-primary">このプランを選ぶ</a>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="plan-name">プレミアム</div>
+                    <div class="plan-price">¥6,980</div>
+                    <div class="plan-period">月額（税込）</div>
+                    <ul class="plan-features">
+                        <li>高級ブランドマットレス</li>
+                        <li>配送・設置無料</li>
+                        <li>プレミアムクリーニング</li>
+                        <li>24時間電話サポート</li>
+                        <li>月1回無料交換</li>
+                    </ul>
+                    <a href="#cta" class="btn-primary">このプランを選ぶ</a>
+                </div>
+                <div class="pricing-card">
+                    <div class="plan-name">エグゼクティブ</div>
+                    <div class="plan-price">¥12,980</div>
+                    <div class="plan-period">月額（税込）</div>
+                    <ul class="plan-features">
+                        <li>最高級マットレス</li>
+                        <li>配送・設置無料</li>
+                        <li>特別クリーニング</li>
+                        <li>専属コンシェルジュ</li>
+                        <li>無制限交換</li>
+                        <li>枕・シーツセット付き</li>
+                    </ul>
+                    <a href="#cta" class="btn-primary">このプランを選ぶ</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2 class="section-title">お客様の声</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <div class="testimonial-text">
+                        "購入前にお試しできるのが本当に助かりました。実際に使ってみて、自分に合うマットレスを見つけることができました。"
+                    </div>
+                    <div class="testimonial-author">- 田中様（30代女性）</div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-text">
+                        "転勤が多い仕事なので、レンタルサービスは本当に便利です。引っ越しの度に新しいマットレスを購入する必要がなくなりました。"
+                    </div>
+                    <div class="testimonial-author">- 佐藤様（40代男性）</div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-text">
+                        "高級マットレスを手軽に試せるのが魅力的。睡眠の質が格段に向上し、毎日の疲れが取れやすくなりました。"
+                    </div>
+                    <div class="testimonial-author">- 山田様（20代女性）</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="cta">
+        <div class="container">
+            <h2>今すぐ最高の睡眠を始めませんか？</h2>
+            <p>初回1ヶ月無料キャンペーン実施中！この機会をお見逃しなく。</p>
+            <a href="#" class="btn-primary" style="background: #ff6b6b; font-size: 1.2rem; padding: 1.2rem 2.5rem;">無料で始める</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>SleepRent</h3>
+                    <p>最高の睡眠体験をお届けする<br>マットレスレンタルサービス</p>
+                </div>
+                <div class="footer-section">
+                    <h3>サービス</h3>
+                    <a href="#">マットレスレンタル</a>
+                    <a href="#">配送・設置</a>
+                    <a href="#">クリーニング</a>
+                    <a href="#">カスタマーサポート</a>
+                </div>
+                <div class="footer-section">
+                    <h3>サポート</h3>
+                    <a href="#">よくある質問</a>
+                    <a href="#">お問い合わせ</a>
+                    <a href="#">利用規約</a>
+                    <a href="#">プライバシーポリシー</a>
+                </div>
+                <div class="footer-section">
+                    <h3>お問い合わせ</h3>
+                    <p>📞 0120-123-456</p>
+                    <p>📧 info@sleeprent.com</p>
+                    <p>🕒 24時間365日対応</p>
+                </div>
+            </div>
+            <div style="border-top: 1px solid #555; padding-top: 2rem; margin-top: 2rem;">
+                <p>&copy; 2024 SleepRent. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // スムーススクロール
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // ヘッダーのスクロール効果
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = '#fff';
+                header.style.backdropFilter = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
